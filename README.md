@@ -13,13 +13,15 @@ luarocks install cutorch
 luarocks install cunn
 luarocks install cudnn
 ```
-  
-## Colorize images  
+
+# Model
+
+Pretrained model can be found in [Google Drive](https://drive.google.com/drive/folders/0B3lu5NBSC7pVdGs1Mzl0SEJ0TUk?usp=sharing)
+
+## Colorize images  (deprecated, not for this project)
 Assume you want to colorize image `input.jpg` and store result image as `output.png`  
   
 ```bash
-#Download pre-trained model
-wget -O model.t7 "https://github.com/zeruniverse/neural-colorization/releases/download/1.0/places2.t7"
 #Colorize an image
 th colorize.lua -model model.t7 -input_image input.jpg -output_image output.png -gpu 0
   
