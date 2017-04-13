@@ -23,7 +23,10 @@ org = im.open(args.original_image)
 adj = im.open(args.adjusted_image)
 out = args.output
 
-w, h = org.size[0], org.size[1]
+#w, h = org.size[0], org.size[1]
+
+# left top square area that not contain ball
+w, h = 200, 200
 
 # 3 channel(r,g,b) for each pixel
 res = np.zeros((w, h, 3))
