@@ -44,6 +44,8 @@ function gen_file_list(dir)
     for file in paths.files(dir) do
         if file:find('[.]jpg$') then
             table.insert(files, file)
+        elseif file:find('[.]png$') then
+            table.insert(files, file)
         end
     end
 

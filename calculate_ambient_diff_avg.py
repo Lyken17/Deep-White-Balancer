@@ -5,7 +5,7 @@ mean_sum = 0.0
 median_sum = 0.0
 count = 0.0
 
-with open('ambient_diff.csv', newline='') as csvfile:
+with open('ambient_diff_dataset_568.csv', newline='') as csvfile:
     data_reader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in data_reader:
         mean_sum += float(row[3])
