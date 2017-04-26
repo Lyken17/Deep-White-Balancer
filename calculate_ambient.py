@@ -17,10 +17,7 @@ parser.add_argument('adjusted_image',
 parser.add_argument('output',
         default='Grayball11346_clip_resize_data/ApacheTrail/00000.jpg.npy')
 
-parser.add_argument('original_gamma',
-        default='1')
-
-parser.add_argument('adjusted_gamma',
+parser.add_argument('ambient_gamma',
         default='1')
 
 def applyGamma(C, g):
@@ -46,13 +43,15 @@ res = np.zeros((w, h, 3))
 
 for y in range(0, h):
     for x in range(0, w):
-        p_org = [applyGamma(c, float(args.original_gamma)) for c in org.getpixel((x, y))]
-        p_adj = [applyGamma(c, float(args.adjusted_gamma)) for c in adj.getpixel((x, y))]
+        p_org = org.getpixel((x, y))
+        p_adj = adj.getpixel((x, y))
 
         # + 1 to avoid zero ZeroDivisionError
         res[x][y][0] = (p_org[0] + 1) / (p_adj[0] + 1)
         res[x][y][1] = (p_org[1] + 1) / (p_adj[1] + 1)
         res[x][y][2] = (p_org[2] + 1) / (p_adj[2] + 1)
+
+        res[x][y] = [applyGamma(c, float(args.ambient_gamma)) for c in res[x][y]]
 
         # print('p_org:', p_org)
         # print('p_adj:', p_adj)

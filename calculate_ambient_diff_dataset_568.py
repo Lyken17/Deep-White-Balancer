@@ -12,7 +12,7 @@ real_rgb_list = scipy.io.loadmat('groundtruth_568/real_illum_568..mat')['real_rg
 image_list_file = open('dataset_568/filelist.txt')
 
 import csv
-data_file = open('ambient_diff_dataset_568.csv', 'w', newline='')
+data_file = open('ambient_diff_dataset_568_with_inverse_gamma.csv', 'w', newline='')
 data_filednames = [
     'file',
     'ground_truth',
@@ -28,7 +28,7 @@ data_writer = csv.DictWriter(data_file,
 
 for f, real_rgb in zip(image_list_file, real_rgb_list):
     basename = f.replace('\n', '')
-    proceed_rgb_mat = np.load('dataset_568_data/' +
+    proceed_rgb_mat = np.load('dataset_568_data_with_inverse_gamma/' +
         basename + '.npy')
 
     # flattern 3d mat [x1:[y1:[rgb1:[]]...]...]
