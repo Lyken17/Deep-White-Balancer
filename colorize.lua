@@ -70,7 +70,7 @@ local function main()
     uv = image.scale(uv,W,H)
     local img_out = torch.cat(img_pre,uv,1)
     img_out = image.yuv2rgb(img_out)
-    
+
     print('Writing output image to ' .. out_path)
     local out_dir = paths.dirname(out_path)
     if not path.isdir(out_dir) then
