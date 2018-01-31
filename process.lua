@@ -16,11 +16,13 @@ local cmd = torch.CmdLine()
 cmd:option('-model', 'checkpoint.t7')
 
 -- Input / output options
-cmd:option('-input_dir', '/media/ligeng/storage1/Datasets/NUS Color/random_image_from_net_disturbed')
-cmd:option('-output_dir', '/media/ligeng/storage1/Datasets/NUS Color/random_image_from_net_recover')
+dataset = "random_image_from_net"
+root = "/mnt/HDD1/Datasets/NUS Color/"
+cmd:option('-input_dir', root .. dataset .."_disturbed")
+cmd:option('-output_dir',root .. dataset .."_recovered")
 
 -- GPU options
-cmd:option('-gpu', -1)
+cmd:option('-gpu', 0)
 cmd:option('-backend', 'cuda')
 cmd:option('-use_cudnn', 1)
 cmd:option('-cudnn_benchmark', 0)

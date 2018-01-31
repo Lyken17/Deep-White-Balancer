@@ -53,6 +53,8 @@ function main()
     print('Initializing model from scratch')
     model = models.build_model(opt):type(dtype)
   end
+  print(model)
+  exit()
   cudnn.benchmark = false
   if use_cudnn then cudnn.convert(model, cudnn) end
   model:training()
