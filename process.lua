@@ -1,6 +1,5 @@
 -- process Grayball11346 images
 -- use do_process_balls.sh for batch processing
-
 require 'torch'
 require 'nn'
 require 'image'
@@ -16,8 +15,9 @@ local cmd = torch.CmdLine()
 cmd:option('-model', 'checkpoint.t7')
 
 -- Input / output options
-dataset = "random_image_from_net"
-root = "/mnt/HDD1/Datasets/NUS Color/"
+dataset = "Canon1DsMkIII_JPG"
+-- root = "/mnt/HDD1/Datasets/NUS Color/"
+root = "/mnt/HDD1/Datasets/Colorizing_Color_Images/"
 cmd:option('-input_dir', root .. dataset .."_disturbed")
 cmd:option('-output_dir',root .. dataset .."_recovered")
 
@@ -53,7 +53,7 @@ function gen_file_list(dir)
             table.insert(files, file)
         end
     end
-
+    print(files)
     return files
 end
 
