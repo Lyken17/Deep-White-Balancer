@@ -15,7 +15,7 @@ local cmd = torch.CmdLine()
 cmd:option('-model', 'checkpoint.t7')
 
 -- Input / output options
-dataset = "Canon1DsMkIII_JPG"
+dataset = "test2014"
 -- root = "/mnt/HDD1/Datasets/NUS Color/"
 root = "/mnt/HDD1/Datasets/Colorizing_Color_Images/"
 cmd:option('-input_dir', root .. dataset .."_disturbed")
@@ -53,7 +53,7 @@ function gen_file_list(dir)
             table.insert(files, file)
         end
     end
-    print(files)
+    print(#files)
     return files
 end
 
